@@ -4,6 +4,8 @@ import { increment, decrement } from "./counterSlice";
 
 const CounterRtk = () => {
   const count = useSelector((state) => state.counterReducer.count);
+  const themeColor = useSelector((state) => state.themeReducer.color);
+
   //   const newMyArray = useSelector((state) => state.counterReducer.newArray);
 
   const dispatch = useDispatch();
@@ -16,7 +18,11 @@ const CounterRtk = () => {
       >
         +
       </button>
-      <input type="submit" value={count} />
+      <input
+        type="submit"
+        value={count}
+        style={{ backgroundColor: themeColor }}
+      />
       <button
         onClick={() => {
           dispatch(decrement(10));
@@ -24,6 +30,7 @@ const CounterRtk = () => {
       >
         -
       </button>
+      <h1>{themeColor}</h1>
       {/* <input type="text"  /> */}
     </>
   );
